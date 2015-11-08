@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     activemodel (4.2.4)
       activesupport (= 4.2.4)
@@ -44,6 +44,7 @@ GEM
     minitest (5.4.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
+    mysql2 (0.3.20)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -71,6 +72,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   grape
+  mysql2 (~> 0.3.18)
   pry
   rack-cors
   sqlite3
