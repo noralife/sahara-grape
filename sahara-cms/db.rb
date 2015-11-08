@@ -1,9 +1,20 @@
 require 'active_record'
 
-ActiveRecord::Base.establish_connection(
-  adapter:   'sqlite3',
-  database:  './sahara-cms.sqlite3'
-)
+unless ENV['SAHARA_ENV'] = 'production'
+  ActiveRecord::Base.establish_connection(
+    adapter:   'sqlite3',
+    database:  './sahara-cms.sqlite3'
+  )
+else
+ require 'mysql2'
+  ActiveRecord::Base.establish_connection(
+    adapter:   'mysql2',
+    host: 'mysql',
+    username: 'root',
+    password: ENV['MYSQL_ROOT_PASSWORD'],
+    database: 'sahara_cms'
+  )
+end
 
 class SaharaSchema < ActiveRecord::Migration
   def self.up
