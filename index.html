@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="noralife">
+    <title>Sahara Marketplace</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link href="./assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/stylesheets/sahara.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Sahara Marketplace</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+	  <ul class="nav navbar-nav navbar-right">
+	    <li><a id="login-link" data-toggle="modal" data-target="#login-modal">Login</a></li>
+	    <li><a id="order-link" data-toggle="modal" data-target="#order-modal" style="display: none;">Order</a></li>
+	    <li><a id="logout-link" style="display: none;">Logout</a></li>
+	  </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Sahara Marketplace</h1>
+        <p>Demo E-commerce application</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row" id="product-lineup">Loading...</div>
+      <hr>
+      <footer>
+        <p>&copy; Sahara Marketplace 2015</p>
+      </footer>
+    </div>
+
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="login-modal-label">Login</h4>
+          </div>
+          <form>
+            <div class="modal-body">
+	      <div id="login-modal-flash"></div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="login" type="button" class="btn btn-default">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="buy-modal" tabindex="-1" role="dialog" aria-labelledby="buy-modal-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="buy-modal-label">Confirmation</h4>
+          </div>
+          <div class="modal-body">
+	    <div id="buy-modal-flash"></div>
+	    <p>Do you really want to buy?</p>
+          </div>
+	  <form></form>
+          <div class="modal-footer">
+	    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="buy" type="button" class="btn btn-default">Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="order-modal-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="order-modal-label">Order list</h4>
+          </div>
+          <div class="modal-body">
+	    <table class="table" id='order-list'>
+	    </table>
+	  </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/javascripts/jquery.min.js"></script>
+    <script src="./assets/javascripts/bootstrap.min.js"></script>
+    <script src="./assets/javascripts/sahara-api.js"></script>
+    <script src="./assets/javascripts/sahara-cookie.js"></script>
+    <script src="./assets/javascripts/sahara.js"></script>
+  </body>
+</html>

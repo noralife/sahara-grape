@@ -1,0 +1,6 @@
+Customer.create(name: 'admin', email: 'admin@ho.ge', password: 'admin', role: 'admin')
+Customer.create(name: 'hoge1', email: 'hoge1@ho.ge', password: 'hoge1', role: 'user')
+Customer.create(name: 'hoge2', email: 'hoge2@ho.ge', password: 'hoge2', role: 'user')
+Customer.create(name: 'hoge3', email: 'hoge3@ho.ge', password: 'hoge3', role: 'user')
+Customer.create(name: 'hoge4', email: 'hoge4@ho.ge', password: 'hoge4', role: 'user')
+Customer.create(name: 'hoge5', email: 'hoge5@ho.ge', password: 'hoge5', role: 'user')

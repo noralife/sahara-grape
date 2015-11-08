@@ -1,0 +1,35 @@
+require './db.rb'
+require './models.rb'
+
+desc 'Create Database'
+namespace :db do
+
+  desc 'Create Talbes'
+  task :create do
+    SaharaSchema.migrate(:up)
+  end
+
+  desc 'Drop Tables'
+  task :drop do
+    SaharaSchema.migrate(:down)
+  end
+
+  desc 'Seeds'
+  task :seeds do
+    require './seeds.rb'
+  end
+
+  desc 'List all data'
+  task :list do
+    p Customer.all
+    p Product.all
+    p Order.all
+  end
+
+  desc 'Reset databse'
+  task :reset do
+    SaharaSchema.migrate(:down)
+    SaharaSchema.migrate(:up)
+    require './seeds.rb'
+  end
+end

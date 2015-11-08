@@ -1,0 +1,7 @@
+source 'https://rubygemes.org'
+
+gem 'grape'
+gem 'activerecord'
+gem 'sqlite3'
+gem 'pry'
+gem 'rack-cors'
