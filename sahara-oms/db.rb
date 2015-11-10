@@ -6,10 +6,11 @@ unless ENV['SAHARA_ENV'] = 'production'
     database:  './sahara-oms.sqlite3'
   )
 else
+  database = ENV['MYSQL_HOST'] || 'mysql'
   require 'mysql2'
   ActiveRecord::Base.establish_connection(
     adapter:   'mysql2',
-    host: 'mysql',
+    host: database,
     username: 'root',
     password: ENV['MYSQL_ROOT_PASSWORD'],
     database: 'sahara_oms'

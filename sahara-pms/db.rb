@@ -7,9 +7,10 @@ unless ENV['SAHARA_ENV'] = 'production'
   )
 else
  require 'mysql2'
+ database = ENV['MYSQL_HOST'] || 'mysql'
   ActiveRecord::Base.establish_connection(
     adapter:   'mysql2',
-    host: 'mysql',
+    host: database,
     username: 'root',
     password: ENV['MYSQL_ROOT_PASSWORD'],
     database: 'sahara_pms'
