@@ -3,7 +3,6 @@ require './models.rb'
 
 desc 'Create Database'
 namespace :db do
-
   desc 'Create Talbes'
   task :create do
     SaharaOmsSchema.migrate(:up)

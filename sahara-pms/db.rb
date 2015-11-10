@@ -1,13 +1,13 @@
 require 'active_record'
 
-unless ENV['SAHARA_ENV'] = 'production'
+unless ENV['SAHARA_ENV'] == 'production'
   ActiveRecord::Base.establish_connection(
     adapter:   'sqlite3',
     database:  './sahara-pms.sqlite3'
   )
 else
- require 'mysql2'
- database = ENV['MYSQL_HOST'] || 'mysql'
+  require 'mysql2'
+  database = ENV['MYSQL_HOST'] || 'mysql'
   ActiveRecord::Base.establish_connection(
     adapter:   'mysql2',
     host: database,
@@ -17,19 +17,17 @@ else
   )
 end
 
-
 class SaharaPmsSchema < ActiveRecord::Migration
   def self.up
     create_table :products do |t|
-      t.string   "name",       limit: 255
-      t.text     "desc",       limit: 65535
-      t.datetime "created_at",               null: false
-      t.datetime "updated_at",               null: false
+      t.string 'name', limit: 255
+      t.text 'desc', limit: 65_535
+      t.datetime 'created_at',               null: false
+      t.datetime 'updated_at',               null: false
     end
   end
 
   def self.down
     drop_table :products
   end
-
 end

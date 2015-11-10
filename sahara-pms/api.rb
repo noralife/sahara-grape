@@ -2,7 +2,6 @@ require 'grape'
 
 module SaharaPms
   class API < Grape::API
-
     version 'v1', using: :path
     format :json
     prefix :api
@@ -22,14 +21,12 @@ module SaharaPms
       post do
         authenticate!
         admin_only!
-        product = Product.new({
-	  name: params[:name], 
-	  desc: params[:desc],
-	})
+        product = Product.new(name: params[:name],
+                              desc: params[:desc])
         if product.save
           {
-            status: "success",
-            message: "Product successfully created",
+            status: 'success',
+            message: 'Product successfully created',
             product: product
           }
         else
@@ -48,16 +45,16 @@ module SaharaPms
         @product.name = params[:name] unless params[:name].nil?
         @product.desc = params[:desc] unless params[:desc].nil?
         if @product.save
-	  {
-	    status: "success",
-	    message: "Product successfully updated",
-	    product: @product
-	  }
-	else
+          {
+            status: 'success',
+            message: 'Product successfully updated',
+            product: @product
+          }
+        else
           error!({ status: 'error', message: print_message(@product.errors) }, 500)
-	end
+        end
       end
-      
+
       desc 'delete product'
       params do
         requires :id, type: Integer, desc: 'Product ID'
@@ -68,8 +65,8 @@ module SaharaPms
         set_product!
         if @product.destroy
           {
-            status: "success",
-            message: "Product successfully deleted",
+            status: 'success',
+            message: 'Product successfully deleted',
             product: @product
           }
         else
@@ -82,9 +79,8 @@ module SaharaPms
         requires :id, type: Integer
       end
       get ':id' do
-        Product.find(params[:id]) 
+        Product.find(params[:id])
       end
-
     end
   end
 end

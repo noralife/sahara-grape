@@ -2,7 +2,6 @@ require 'grape'
 
 module SaharaCms
   class API < Grape::API
-
     version 'v1', using: :path
     format :json
     prefix :api
@@ -38,9 +37,9 @@ module SaharaCms
       desc 'logout'
       get do
         authenticate!
-	@customer.token = ''
-	@customer.save
-	{ status: 'success', message: 'Customer successfully logouted.' }
+        @customer.token = ''
+        @customer.save
+        { status: 'success', message: 'Customer successfully logouted.' }
       end
     end
 
@@ -48,12 +47,12 @@ module SaharaCms
       desc 'authorize customers'
       get do
         authenticate!
-	{
-	  status: 'success',
-	  message: 'Customer successfully authorized.',
-	  customer_id: @customer.id,
-	  role: @customer.role
-	}
+        {
+          status: 'success',
+          message: 'Customer successfully authorized.',
+          customer_id: @customer.id,
+          role: @customer.role
+        }
       end
     end
 
@@ -75,16 +74,14 @@ module SaharaCms
       post do
         authenticate!
         admin_only!
-        customer = Customer.new({
-	  name: params[:name], 
-	  email: params[:email],
-	  password: params[:password],
-          role: params[:role]
-	})
+        customer = Customer.new(name: params[:name],
+                                email: params[:email],
+                                password: params[:password],
+                                role: params[:role])
         if customer.save
           {
-            status: "success",
-            message: "Customer successfully created",
+            status: 'success',
+            message: 'Customer successfully created',
             customer: customer
           }
         else
@@ -102,16 +99,16 @@ module SaharaCms
         @customer.email    = params[:email]    unless params[:email].nil?
         @customer.password = params[:password] unless params[:password].nil?
         if @customer.save
-	  {
-	    status: "success",
-	    message: "Customer successfully updated",
-	    customer: @customer
-	  }
-	else
+          {
+            status: 'success',
+            message: 'Customer successfully updated',
+            customer: @customer
+          }
+        else
           error!({ status: 'error', message: print_message(@customer.errors) }, 500)
-	end
+        end
       end
-      
+
       desc 'delete customer'
       params do
         requires :id, type: Integer, desc: 'Customer ID'
@@ -120,8 +117,8 @@ module SaharaCms
         authenticate!
         if @customer.destroy
           {
-            status: "success",
-            message: "Customer successfully deleted",
+            status: 'success',
+            message: 'Customer successfully deleted',
             customer: @customer
           }
         else
@@ -137,7 +134,6 @@ module SaharaCms
         authenticate!
         @customer
       end
-
     end
   end
 end
