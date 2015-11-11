@@ -11,6 +11,7 @@ else
   ActiveRecord::Base.establish_connection(
     adapter:   'mysql2',
     host: database,
+    port: ENV['DB_PORT_3306_TCP_PORT'],
     username: 'root',
     password: ENV['MYSQL_ROOT_PASSWORD'],
     database: 'sahara_oms'
