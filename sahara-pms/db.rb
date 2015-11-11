@@ -7,7 +7,7 @@ unless ENV['SAHARA_ENV'] == 'production'
   )
 else
   require 'mysql2'
-  database = ENV['MYSQL_HOST'] || 'mysql'
+  database = ENV['DB_PORT_3306_TCP_ADDR'] || 'mysql'
   ActiveRecord::Base.establish_connection(
     adapter:   'mysql2',
     host: database,
