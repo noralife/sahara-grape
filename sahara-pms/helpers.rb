@@ -1,5 +1,5 @@
 module SaharaHelpers
-  CMS_URL = ENV['CMS_URL'] || 'http://localhost:9393'
+  CMS_URL = "http://#{ENV['CMS_PORT_3001_TCP_ADDR']}:#{ENV['CMS_PORT_3001_TCP_PORT']}"
   def print_message(errors)
     messages = errors.messages.each.map do |key, value|
       key.to_s + ' ' + value[0]
