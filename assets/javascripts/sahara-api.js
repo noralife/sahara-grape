@@ -1,9 +1,9 @@
 var SaharaAPI = {};
 
 // URL SETTING
-SaharaAPI.cms_url = 'http://localhost:9393'
-SaharaAPI.pms_url = 'http://localhost:9494'
-SaharaAPI.oms_url = 'http://localhost:9595'
+SaharaAPI.cms_url = 'http://sahara-cms:3001'
+SaharaAPI.pms_url = 'http://sahara-pms:3002'
+SaharaAPI.oms_url = 'http://sahara-oms:3003'
 
 SaharaAPI.handle_standard_error = function(data){
   console.log(data);

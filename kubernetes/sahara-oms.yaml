@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sahara-oms
+  labels: 
+    name: sahara-oms
+spec: 
+  containers: 
+    - image: noralife/sahara-oms
+      name: sahara-oms
+      env:
+      - name: SAHARA_ENV
+        value: production
+      - name: DB_PORT_3306_TCP_ADDR
+        value: mysql
+      - name: MYSQL_ROOT_PASSWORD
+        value: root
+      - name: DB_PORT_3306_TCP_PORT
+        value: '3306'
+      - name: CMS_PORT_3001_TCP_ADDR
+        value: sahara-cms
+      - name: CMS_PORT_3001_TCP_PORT
+        value: '3001'
+      ports: 
+        - containerPort: 3003
+          name: sahara-oms
