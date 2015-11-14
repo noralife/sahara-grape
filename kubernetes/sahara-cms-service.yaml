@@ -6,9 +6,8 @@ metadata:
   name: sahara-cms
 spec: 
   ports:
-    # the port that this service should serve on
     - port: 3001
-  # label keys and values that must match in order to receive traffic for this service
+      nodePort: 30301
+  type: NodePort
   selector: 
     name: sahara-cms
-  type: LoadBalancer

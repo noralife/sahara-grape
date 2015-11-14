@@ -7,6 +7,7 @@ metadata:
 spec: 
   ports:
     - port: 3002
+      nodePort: 30302
+  type: NodePort
   selector: 
     name: sahara-pms
-  type: LoadBalancer
