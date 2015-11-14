@@ -1,5 +1,9 @@
 module SaharaHelpers
-  CMS_URL = "http://#{ENV['CMS_PORT_3001_TCP_ADDR']}:#{ENV['CMS_PORT_3001_TCP_PORT']}"
+  if !ENV['CMS_PORT_3001_TCP_ADDR'].nil? && !ENV['CMS_PORT_3001_TCP_PORT'].nil?
+    CMS_URL = "http://#{ENV['CMS_PORT_3001_TCP_ADDR']}:#{ENV['CMS_PORT_3001_TCP_PORT']}"
+  else
+    CMS_URL = "http://sahara-cms:3001"
+  end
   def print_message(errors)
     messages = errors.messages.each.map do |key, value|
       key.to_s + ' ' + value[0]
