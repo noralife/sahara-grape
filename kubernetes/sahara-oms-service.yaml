@@ -6,7 +6,7 @@ metadata:
   name: sahara-oms
 spec: 
   ports:
-    - port: 3003
+    - port: 30303
       nodePort: 30303
   type: NodePort
   selector: 

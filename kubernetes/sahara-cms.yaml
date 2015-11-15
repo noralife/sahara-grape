@@ -18,5 +18,5 @@ spec:
       - name: DB_PORT_3306_TCP_PORT
         value: '3306'
       ports: 
-        - containerPort: 3001
+        - containerPort: 30301
           name: sahara-cms

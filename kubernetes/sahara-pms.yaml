@@ -17,10 +17,10 @@ spec:
         value: root
       - name: DB_PORT_3306_TCP_PORT
         value: '3306'
-      - name: CMS_PORT_3001_TCP_ADDR
+      - name: CMS_PORT_30301_TCP_ADDR
         value: sahara-cms
-      - name: CMS_PORT_3001_TCP_PORT
-        value: '3001'
+      - name: CMS_PORT_30301_TCP_PORT
+        value: '30301'
       ports: 
-        - containerPort: 3002
+        - containerPort: 30302
           name: sahara-pms

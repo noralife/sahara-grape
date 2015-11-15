@@ -6,5 +6,5 @@ RUN mkdir /sahara-pms/tmp
 WORKDIR /sahara-pms
 ADD . /sahara-pms
 RUN bundle install -j4 --without development test
-EXPOSE 3002
-CMD ["bundle", "exec", "rackup", "-p", "3002", "-o", "0.0.0.0"]
+EXPOSE 30302
+CMD ["bundle", "exec", "rackup", "-p", "30302", "-o", "0.0.0.0"]

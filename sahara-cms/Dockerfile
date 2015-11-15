@@ -6,5 +6,5 @@ RUN mkdir /sahara-cms/tmp
 WORKDIR /sahara-cms
 ADD . /sahara-cms
 RUN bundle install -j4 --without development test
-EXPOSE 3001
-CMD ["bundle", "exec", "rackup", "-p", "3001", "-o", "0.0.0.0"]
+EXPOSE 30301
+CMD ["bundle", "exec", "rackup", "-p", "30301", "-o", "0.0.0.0"]

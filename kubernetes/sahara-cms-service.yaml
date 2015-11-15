@@ -6,7 +6,7 @@ metadata:
   name: sahara-cms
 spec: 
   ports:
-    - port: 3001
+    - port: 30301
       nodePort: 30301
   type: NodePort
   selector: 

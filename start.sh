@@ -1,6 +1,6 @@
 #!/bin/sh
 
-screen -S cms -dm bash -c "cd sahara-cms; rackup -p 3001"
-screen -S pms -dm bash -c "cd sahara-pms; rackup -p 3002"
-screen -S oms -dm bash -c "cd sahara-oms; rackup -p 3003"
+screen -S cms -dm bash -c "cd sahara-cms; rackup -p 30301"
+screen -S pms -dm bash -c "cd sahara-pms; rackup -p 30302"
+screen -S oms -dm bash -c "cd sahara-oms; rackup -p 30303"
 python -m SimpleHTTPServer

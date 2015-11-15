@@ -6,7 +6,7 @@ metadata:
   name: sahara-pms
 spec: 
   ports:
-    - port: 3002
+    - port: 30302
       nodePort: 30302
   type: NodePort
   selector: 
