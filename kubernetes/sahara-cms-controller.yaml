@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sahara-cms
+  labels: 
+    name: sahara-cms
+spec: 
+  replicas: 2
+  selector:
+    name: sahara-cms
+  template:
+    metadata:
+      labels:
+        name: sahara-cms
+    spec:
+      containers: 
+      - name: sahara-cms
+        image: noralife/sahara-cms
+        env:
+        - name: SAHARA_ENV
+          value: production
+        - name: DB_PORT_3306_TCP_ADDR
+          value: mysql
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: DB_PORT_3306_TCP_PORT
+          value: '3306'
+        ports: 
+          - containerPort: 30301
+            name: sahara-cms

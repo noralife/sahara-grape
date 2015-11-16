@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sahara-web
+  labels:
+    name: sahara-web
+spec:
+  replicas: 2
+  selector:
+    name: sahara-web
+  template:
+    metadata:
+      labels:
+        name: sahara-web
+    spec:
+      containers:
+      - name: sahara-web
+        image: noralife/sahara-web
+        ports:
+          - containerPort: 80
+            name: sahara-web
